@@ -29,5 +29,8 @@
     pip: name={{item}}
     with_items: pip_packages
 
+  - name: Update lxc-docker
+    apt: pkg=lxc-docker state=latest update_cache=yes
+
   handlers:
     - include: handlers.yml
