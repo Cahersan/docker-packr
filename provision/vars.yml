@@ -7,8 +7,12 @@ system_packages:
   - vim
   - tree
   - git
+  - nginx
+  - reprepro
+  - dpkg-sig
   - python-software-properties
   - python-dev
+  - python-pip
   - python-psycopg2
   - libpq-dev
   - postgresql
@@ -17,3 +21,4 @@ pip_packages:
   - virtualenv
   - virtualenvwrapper
   - ipython
+  - docker-py

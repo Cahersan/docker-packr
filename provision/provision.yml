@@ -5,11 +5,11 @@
     - vars.yml
 
   tasks:
-  - name: Install system packages.
+  - name: Install system packages
     apt: pkg={{item}} state=installed update-cache=yes
     with_items: system_packages
 
-  - name: Add repository key to keychain
+  - name: Add python3.3 repository's key to keychain
     apt_key: url=http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x5BB92C09DB82666C state=present
 
   - name: Add repository with Python 3.3 to apt resources list
@@ -19,10 +19,10 @@
     apt: pkg={{item}} update-cache=yes force=yes
     with_items: python_packages
 
-  - name: Install setuptools
+  - name: Install setuptools for python 3.3
     shell: "wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python3.3"
 
-  - name: Install pip
+  - name: Install pip for python 3.3
     easy_install: name=pip
 
   - name: Install pip packages
@@ -31,6 +31,9 @@
 
   - name: Update lxc-docker
     apt: pkg=lxc-docker state=latest update_cache=yes
+
+  - name: Install ansible (must be intalled with python 2.7)
+    pip: name=ansible executable=/usr/lib/python2.7/dist-packages/pip
 
   handlers:
     - include: handlers.yml
