@@ -1,0 +1,15 @@
+- hosts: all
+  vars_files:
+    - vars.yml
+
+  tasks:
+#  - name: remove an image
+#    docker_image:  name="cahersan" tag="0.1.2" state=absent
+
+  - name: build an image
+    docker_image:  path="/vagrant" name={{app}} tag={{version}} state=build
+
+#  - name: Install system packages.
+#    docker: 
+#    with_items: envvars
+
