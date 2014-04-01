@@ -1,3 +1,9 @@
+## Welcome to docker-packr!!
+
+The aim is to reproduce the following stack:
+
+![stack](stack.png)
+
 # Setting up a Docker image to provision with ansible
 
 docker containers need to share an ssh key with the host in order to be able
@@ -12,6 +18,7 @@ Now the docker image can be built and run successfully
     $ sudo docker run -t -d -P --name <container> <image>
 
 Run to get the ssh host port mapped to port 22 in the container
+
     $ sudo docker port <container_name> 22 
 
 ifconfig helps you find the local IP address for docker daemon
@@ -69,7 +76,7 @@ Some other reads:
 
 Check port where the container is running to name the images accordingly. e.g.:
 
-port is 49155. To send an image to private registry tag it as 
+*port is 49155. To send an image to private registry tag it as:*
 
     $ sudo docker tag <image> <url(localhost):port>/name[:tag]
 
